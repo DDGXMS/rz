@@ -18,7 +18,6 @@ import org.apache.http.HttpResponse;
 import org.apache.http.ParseException;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
@@ -32,7 +31,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.syy.rz.entity.Rz;
-import org.syy.rz.excel.ExcelUtil;
+import org.syy.rz.util.ExcelUtil;
 import org.syy.rz.util.HtmlParserUtil;
 import org.syy.rz.util.SugarMap;
 
@@ -48,11 +47,6 @@ public class Job51Test {
     /**
      * post请求，有参数，无代理
      * 
-     * @param url
-     * @param params
-     * @return
-     * @throws java.io.IOException
-     * @throws org.apache.http.client.ClientProtocolException
      */
     public static HttpClient login51Job(String name1, String name2, String password)
             throws ClientProtocolException, IOException {

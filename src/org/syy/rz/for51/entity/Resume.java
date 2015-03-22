@@ -1,31 +1,39 @@
-package org.syy.rz.entity;
+package org.syy.rz.for51.entity;
 
 /**
- * TODO
- * 
- * @author syy
- * @since 2014-11-26 下午2:59:42
- * @version 1.0
+ * 简历信息
  */
-public class Rz {
+public class Resume {
 
-    private String pipei;
+    /**匹配度*/
+    private String matchDegree;
+    /**姓名*/
     private String name;
-    private String postion;
+    /**职位*/
+    private String position;
+    /**申请公司*/
     private String company;
+    /**工作地点*/
     private String workPlace;
+    /**年龄*/
     private String age;
+    /**学历*/
     private String education;
+    /**工作年限*/
     private String workYears;
+    /**投递时间*/
     private String sendTime;
 
-    public Rz(String pipei, String name, String postion, String company, String workPlace,
-            String age, String education, String workYears, String sendTime) {
+    public Resume() {
+    }
+
+    public Resume(String matchDegree, String name, String position, String company, String workPlace,
+                  String age, String education, String workYears, String sendTime) {
 
         super();
-        this.pipei = pipei;
+        this.matchDegree = matchDegree;
         this.name = name;
-        this.postion = postion;
+        this.position = position;
         this.company = company;
         this.workPlace = workPlace;
         this.age = age;
@@ -35,20 +43,20 @@ public class Rz {
     }
 
     /**
-     * @return the pipei
+     * @return the matchDegree
      */
-    public String getPipei() {
+    public String getMatchDegree() {
 
-        return pipei;
+        return matchDegree;
     }
 
     /**
-     * @param pipei
-     *            the pipei to set
+     * @param matchDegree
+     *            the matchDegree to set
      */
-    public void setPipei(String pipei) {
+    public void setMatchDegree(String matchDegree) {
 
-        this.pipei = pipei;
+        this.matchDegree = matchDegree;
     }
 
     /**
@@ -69,20 +77,20 @@ public class Rz {
     }
 
     /**
-     * @return the postion
+     * @return the position
      */
-    public String getPostion() {
+    public String getPosition() {
 
-        return postion;
+        return position;
     }
 
     /**
-     * @param postion
-     *            the postion to set
+     * @param position
+     *            the position to set
      */
-    public void setPostion(String postion) {
+    public void setPosition(String position) {
 
-        this.postion = postion;
+        this.position = position;
     }
 
     /**

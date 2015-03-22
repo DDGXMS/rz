@@ -1,7 +1,5 @@
 package org.syy.rz.util;
-
 import info.monitorenter.cpdetector.io.*;
-
 import org.apache.commons.lang3.StringUtils;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
