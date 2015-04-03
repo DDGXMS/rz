@@ -30,10 +30,7 @@ import java.util.Map;
 public class HttpClientFor51Job {
 
     /**
-     * 下线
-     * @param user
-     * @return
-     * @throws IOException
+     * 登录
      */
     public static HttpClient login(User user) throws IOException {
 
@@ -50,7 +47,7 @@ public class HttpClientFor51Job {
         httpPost.setHeader("Origin", "http://ehire.51job.com");
         httpPost.setHeader("Referer", "http://ehire.51job.com/MainLogin.aspx");
         Map<String, String> params = SugarMap.stringMap("ctmName",
-                URLEncoder.encode(user.getName(), "utf-8"), "userName", URLEncoder.encode(user.getGroup(), "utf-8"),
+                URLEncoder.encode(user.getMemberName(), "utf-8"), "userName", URLEncoder.encode(user.getUserName(), "utf-8"),
                 "password", user.getPassword(), "isRememberMe", "true", "checkCode", "", "oldAccessKey",
                 accessKey, "langtype", langType, "sc", sc, "ec", ec);
         List<BasicNameValuePair> nvps = null;

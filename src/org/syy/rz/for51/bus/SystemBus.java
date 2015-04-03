@@ -25,12 +25,19 @@ public class SystemBus {
     private User loginUser;
     /**已经登陆的客户端*/
     private HttpClient loginClient;
+
+    /**简历总数*/
+    private int totalResume;
     /**第一页简历的请求参数*/
     private Map<String, String> firstParams;
     /**其他简历页的请求参数*/
     private Map<String, String> otherParams;
-    /**简历总数*/
-    private int totalResume;
+
+    /**职位总数*/
+    private int totalPosition;
+    /**第一页 职位的请求参数*/
+    private Map<String, String> positionParams;
+
     /**
      * 获得简历总页码
      * @return
@@ -77,5 +84,21 @@ public class SystemBus {
 
     public void setTotalResume(int totalResume) {
         this.totalResume = totalResume;
+    }
+
+    public Map<String, String> getPositionParams() {
+        return positionParams;
+    }
+
+    public void setPositionParams(Map<String, String> positionParams) {
+        this.positionParams = positionParams;
+    }
+
+    public int getTotalPosition() {
+        return totalPosition;
+    }
+
+    public void setTotalPosition(int totalPosition) {
+        this.totalPosition = totalPosition;
     }
 }

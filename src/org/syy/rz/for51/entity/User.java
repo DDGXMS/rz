@@ -7,33 +7,33 @@ package org.syy.rz.for51.entity;
 public class User {
 
     /**用户名*/
-    private String name;
+    private String userName;
     /**组名*/
-    private String group;
+    private String memberName;
     /**登陆密码*/
     private String password;
 
 
-    public User(String name, String group, String password) {
-        this.name = name;
-        this.group = group;
+    public User(String memberName, String userName, String password) {
+        this.userName = userName;
+        this.memberName = memberName;
         this.password = password;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getGroup() {
-        return group;
+    public String getMemberName() {
+        return memberName;
     }
 
-    public void setGroup(String group) {
-        this.group = group;
+    public void setMemberName(String memberName) {
+        this.memberName = memberName;
     }
 
     public String getPassword() {

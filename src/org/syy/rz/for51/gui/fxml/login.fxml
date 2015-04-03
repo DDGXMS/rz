@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="399.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="org.syy.rz.for51.controller.LoginController">
+   <children>
+      <TextField fx:id="memberNameTextField" layoutX="101.0" layoutY="77.0" prefHeight="35.0" prefWidth="195.0" promptText="请输入会员名" />
+      <PasswordField fx:id="passwordField" layoutX="102.0" layoutY="189.0" prefHeight="35.0" prefWidth="195.0" promptText="请输入密码" />
+      <Button fx:id="loginButton" layoutX="101.0" layoutY="248.0" mnemonicParsing="false" onAction="#loginAction" prefHeight="35.0" prefWidth="195.0" text="登录" />
+      <Label layoutX="183.0" layoutY="25.0" text="51">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="userNameTextField" layoutX="101.0" layoutY="133.0" prefHeight="35.0" prefWidth="195.0" promptText="请输入用户名" />
+      <Label fx:id="errorLabel" alignment="CENTER" layoutX="102.0" layoutY="293.0" prefHeight="15.0" prefWidth="195.0" text="登录失败" textFill="#ee0404" visible="false" />
+   </children>
+</AnchorPane>
