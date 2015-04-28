@@ -12,6 +12,7 @@ import org.apache.http.util.EntityUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.syy.rz.for51.entity.User;
+import org.syy.rz.for51.exception.LoginException;
 import org.syy.rz.util.SugarMap;
 
 import java.io.IOException;
@@ -32,7 +33,7 @@ public class HttpClientFor51Job {
     /**
      * 登录
      */
-    public static HttpClient login(User user) throws IOException {
+    public static HttpClient login(User user) throws IOException, LoginException {
 
         Document doc = Jsoup.parse(new URL("http://ehire.51job.com/MainLogin.aspx"), 5000);
         String accessKey = doc.getElementById("hidAccessKey").val();
@@ -72,6 +73,30 @@ public class HttpClientFor51Job {
         System.out.println(response.getStatusLine());
         String location = response.getFirstHeader("Location").getValue();
         System.out.println(location);
+        if (location.contains("errorId")) {
+            // 出错了
+            location = location.substring(location.indexOf('?') + 1);
+            String[] p = location.split("&");
+            for (String oneP : p) {
+                if (oneP.contains("errorId")) {
+                    String[] temp = oneP.split("=");
+                    if (temp.length==2) {
+                        switch (temp[1]) {
+                            case "10001": throw new LoginException("会员名不能为空");
+                            case "10002": throw new LoginException("会员名长度错误");
+                            case "10003": throw new LoginException("用户名不能为空");
+                            case "10004": throw new LoginException("用户名长度错误");
+                            case "10005": throw new LoginException("密码不能为空");
+                            case "10006": throw new LoginException("密码必须在6~12位之间");
+                            case "10007": throw new LoginException("验证码不能为空(特殊情况请联系开发)");
+                            default: throw new LoginException("未知");
+                        }
+                    } else {
+                        throw new LoginException("未知");
+                    }
+                }
+            }
+        }
         HttpGet httpGet = new HttpGet(location);
         response = httpClient.execute(httpGet);
         System.out.println(response.getStatusLine());

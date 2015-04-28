@@ -10,6 +10,7 @@ import org.syy.rz.for51.crawl.HttpClientFor51Job;
 import org.syy.rz.for51.crawl.HttpClientUtils;
 import org.syy.rz.for51.entity.Position;
 import org.syy.rz.for51.entity.User;
+import org.syy.rz.for51.exception.LoginException;
 import org.syy.rz.util.SugarMap;
 
 import java.io.IOException;
@@ -112,7 +113,7 @@ public class PositionService {
         return params;
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, LoginException {
         HttpClient client = HttpClientFor51Job.login(new User("德佑-2014", "德佑研发中心总", "dooioo2015"));
         SystemBus.instance().setLoginClient(client);
 

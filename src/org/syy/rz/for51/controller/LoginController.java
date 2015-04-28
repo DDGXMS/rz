@@ -14,6 +14,8 @@ import org.apache.http.client.HttpClient;
 import org.syy.rz.for51.bus.SystemBus;
 import org.syy.rz.for51.crawl.HttpClientFor51Job;
 import org.syy.rz.for51.entity.User;
+import org.syy.rz.for51.exception.LoginException;
+import org.syy.rz.for51.gui.MainFrame;
 import org.syy.rz.util.UIUtils;
 
 import java.io.IOException;
@@ -41,16 +43,19 @@ public class LoginController{
         String memberName = memberNameTextField.getText();
         if (StringUtils.isBlank(memberName)) {
             UIUtils.showErrorMessage("请输入会员名", errorLabel);
+            return;
         }
 
         String userUserName = userNameTextField.getText();
         if (StringUtils.isBlank(userUserName)) {
             UIUtils.showErrorMessage("请输入用户名", errorLabel);
+            return;
         }
 
         String password = passwordField.getText();
         if (StringUtils.isBlank(password)) {
             UIUtils.showErrorMessage("请输入密码", errorLabel);
+            return;
         }
 
         User user = new User(memberName, userUserName, password);
@@ -58,11 +63,14 @@ public class LoginController{
             HttpClient loginHttpClient = HttpClientFor51Job.login(user);
             SystemBus.instance().setLoginUser(user);
             SystemBus.instance().setLoginClient(loginHttpClient);
-
-
+            MainFrame mainFrame = new MainFrame();
+            SystemBus.instance().setMainFrame(mainFrame);
+            loginButton.getScene().getWindow().hide();
+        } catch (LoginException loginException) {
+            UIUtils.showErrorMessage("登录失败：" + loginException.getMessage(), errorLabel);
         } catch (IOException e) {
             e.printStackTrace();
-            UIUtils.showErrorMessage("失败："+e.getMessage(), errorLabel);
+            UIUtils.showErrorMessage("登录失败：" + e.getMessage(), errorLabel);
         }
     }
 }

@@ -3,6 +3,7 @@ package org.syy.rz.for51.bus;
 import org.apache.http.client.HttpClient;
 import org.jsoup.nodes.Document;
 import org.syy.rz.for51.entity.User;
+import org.syy.rz.for51.gui.MainFrame;
 
 import java.util.Map;
 
@@ -37,6 +38,10 @@ public class SystemBus {
     private int totalPosition;
     /**第一页 职位的请求参数*/
     private Map<String, String> positionParams;
+
+
+    /**主界面引用*/
+    private MainFrame mainFrame;
 
     /**
      * 获得简历总页码
@@ -100,5 +105,13 @@ public class SystemBus {
 
     public void setTotalPosition(int totalPosition) {
         this.totalPosition = totalPosition;
+    }
+
+    public MainFrame getMainFrame() {
+        return mainFrame;
+    }
+
+    public void setMainFrame(MainFrame mainFrame) {
+        this.mainFrame = mainFrame;
     }
 }
